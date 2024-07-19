@@ -34,11 +34,3 @@ export const config: SubscriberConfig = {
 };
 ```
 
-A subscriber is defined in two parts a `handler` and a `config`. The `handler` is a function which is invoked when an event is emitted. The `config` is an object which defines which event(s) the subscriber should subscribe to.
-
-The `handler` is a function which takes one parameter, an `object` of type `SubscriberArgs<T>` with the following properties:
-
-- `data` - an `object` of type `T` containing information about the event.
-- `eventName` - a `string` containing the name of the event.
-- `container` - a `MedusaContainer` instance which can be used to resolve services.
-- `pluginOptions` - an `object` containing plugin options, if the subscriber is defined in a plugin.

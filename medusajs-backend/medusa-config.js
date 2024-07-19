@@ -72,6 +72,39 @@ const plugins = [
       },
     },
   },
+  {
+    resolve: `medusa-payment-stripe`,
+    options: {
+      api_key: process.env.STRIPE_API_KEY,
+      webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
+      automatic_payment_methods: true,
+      
+    },
+  },
+  {
+    resolve: `medusa-payment-paypal`,
+    options: {
+      sandbox: process.env.PAYPAL_SANDBOX,
+      clientId: process.env.PAYPAL_CLIENT_ID,
+      clientSecret: process.env.PAYPAL_CLIENT_SECRET,
+      authWebhookId: process.env.PAYPAL_AUTH_WEBHOOK_ID,
+    },
+  },
+  {
+  resolve: `medusa-plugin-sendgrid`,
+  options: {
+    api_key: process.env.SENDGRID_API_KEY,
+    from: process.env.SENDGRID_FROM,
+    order_placed_template: process.env.SENDGRID_ORDER_PLACED_ID,
+    localization: {
+      "de-DE": { // locale key
+        order_placed_template: process.env.SENDGRID_ORDER_PLACED_ID_LOCALIZED,
+      },
+    },
+  },
+},
+
+  
 ];
 
 const modules = {
